@@ -36,7 +36,7 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
     def do_POST(self):
-        if self.path == '/submit':
+        if self.path == '/message':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length).decode('utf-8')
             post_data = dict(item.split('=') for item in post_data.split('&'))
